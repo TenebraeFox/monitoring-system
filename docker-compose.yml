@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  server:
+    build:
+      context: ./server
+    ports:
+      - "5000:5000"
+    volumes:
+      - server-data:/app
+  agent:
+    build:
+      context: ./agent
+    depends_on:
+      - server
+volumes:
+  server-data:
