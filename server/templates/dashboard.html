@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monitoring Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Monitoring Dashboard</h1>
+    <table border="1">
+        <tr>
+            <th>Timestamp</th>
+            <th>Agent ID</th>
+            <th>CPU Load (%)</th>
+            <th>RAM Usage (MB)</th>
+            <th>Disk Usage (%)</th>
+        </tr>
+        {% for metric in metrics %}
+        <tr>
+            <td>{{ metric['timestamp'] }}</td>
+            <td>{{ metric['agent_id'] }}</td>
+            <td>{{ metric['cpu_load'] }}</td>
+            <td>{{ metric['ram_usage'] }}</td>
+            <td>{{ metric['disk_usage'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
